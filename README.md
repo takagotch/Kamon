@@ -138,6 +138,57 @@ public class BooleanTag implements Serializable {
       }
     }
   }
+  
+  
+  
+  
+  
+  public String getKey() {
+    return this.key;
+  }
+  
+  public void setKey(String value) {
+    this.key = value;
+  }
+  
+  public BooleanTag withKey(String value) {
+    this.key = value;
+    return this;
+  }
+  
+  public boolean getValue() {
+    return this.value;
+  }
+  
+  public void setValue(boolean value) {
+    this.value = value;
+  }
+  
+  public BooleanTag withValue(boolean value) {
+    this.value = value;
+    return this;
+  }
+  
+  @Override
+  public final int hashCode() {
+    int h = 1;
+    if (this.key != null) h = 31 * h + this.key.hashCode();
+    h = 31 * h + (this.value ? 1231 : 1237);
+    return h;
+  }
+  
+  @Override
+  public final boolean equals(Object o) {
+    return o instanceof BooleanTag && equals((BooleanTag) o);
+  }
+  
+  public final boolean equals(BooleanTag o) {
+    if (o == null) return false;
+    if (o == this) return true;
+    return o.getClass() == BooleanTag.class
+        && (this.key == null ? o.key == null : this.key.equals(o.key))
+        && this.value == o.value;
+  }
 }
 
 ```
